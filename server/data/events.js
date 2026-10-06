@@ -92,7 +92,7 @@ const eventData = [
         "title": 'Program Volunteer Shift',
         "start_time": '2026-09-26T19:00:00-04:00',
         "end_time": '2026-09-26T21:00:00-04:00',
-        "image": 'https://www.amherst.edu/system/files/styles/fs_370_wide/private/AmherstSeniorCenter_1.jpg?itok=Xsrc9sTl&__=1742328036',
+        "image": 'https://www.emilydickinsonmuseum.org/wp-content/uploads/slider/cache/3df22b52b625531a9f18747eca2c6fa6/Education-Tour-Amherst-College-2.27.25-10-scaled.jpg',
         "location_id": 4
     }
 ]
