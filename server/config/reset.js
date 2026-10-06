@@ -15,14 +15,15 @@ const createTables = async () => {
             city VARCHAR(100) NOT NULL,
             state VARCHAR(2) NOT NULL,
             zip VARCHAR(10) NOT NULL,
-            image TEXT NOT NULL
+            image TEXT NOT NULL,
+            description TEXT NOT NULL
         );
 
         CREATE TABLE events (
             id SERIAL PRIMARY KEY,
             title VARCHAR(255) NOT NULL,
-            start_time TIMESTAMP NOT NULL,
-            end_time TIMESTAMP NOT NULL,
+            start_time TIMESTAMPTZ NOT NULL,
+            end_time TIMESTAMPTZ NOT NULL,
             image TEXT NOT NULL,
             location_id INTEGER NOT NULL REFERENCES locations(id)
         );
@@ -36,16 +37,16 @@ const seedTables = async () => {
 
     for (const loc of locationData) {
         await pool.query(
-            'INSERT INTO locations (name, address, city, state, zip, image) VALUES ($1, $2, $3, $4, $5, $6)',
-            [loc.name, loc.address, loc.city, loc.state, loc.zip, loc.image]
+            'INSERT INTO locations (name, address, city, state, zip, image, description) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+            [loc.name, loc.address, loc.city, loc.state, loc.zip, loc.image, loc.description]
         )
         console.log(`✅ ${loc.name} added`)
     }
 
     for (const event of eventData) {
         await pool.query(
-            'INSERT INTO events (title, date, image, location_id) VALUES ($1, $2, $3, $4)',
-            [event.title, event.date, event.image, event.location_id]
+            'INSERT INTO events (title, start_time, end_time, image, location_id) VALUES ($1, $2, $3, $4, $5)',
+            [event.title, event.start_time, event.end_time, event.image, event.location_id]
         )
         console.log(`✅ ${event.title} added`)
     }

@@ -37,3 +37,9 @@
 .location-events main i {
     margin-right: 10px;
 }
+
+.location-events header .location-description {
+    margin-top: 15px;
+    margin-right: 20px;
+    line-height: 1.5;
+}
